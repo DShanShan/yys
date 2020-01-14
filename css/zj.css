@@ -1,0 +1,204 @@
+/*清除内外边距  */
+html,
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+div,
+img,
+input,
+ul,
+ol,
+dl,
+li,
+dt,
+dd,
+span,
+p {
+    margin: 0;
+    padding: 0
+}
+em {
+    /*转换成行内块*/
+    display: inline-block;
+    font-style: normal;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    /*去掉下划线*/
+    text-decoration: none;
+    color: #000;
+}
+input,
+button {
+    border: 0;
+    /*去掉突出线*/
+    outline: none;
+}
+
+/*清除浮动*/
+.clearfix:after {
+    /*是否可见*/
+    visibility: hidden;
+    clear: both;
+    display: block;
+    content: ".";
+    height: 0
+}
+.clearfix {
+    *zoom: 1
+}
+.pr {
+    position: relative;
+}
+.fl {
+    float: left;
+}
+.fr {
+    float: right;
+}
+.center {
+    text-align: center;
+}
+/*去掉图片的空隙*/
+img {
+    border: 0;
+    vertical-align: middle;
+}
+/*让按钮变小手*/
+button {
+    cursor: pointer;
+}
+/*版心*/
+.w {
+    width: 1180px;
+    margin: 0 auto;
+}
+/*给li添加伪元素*/
+li:after,
+li:before{
+    content: "";
+    display: inline-block;
+}
+
+.top {
+    width: 1960px;
+    height: 500px;
+    position: relative;
+    text-align: center;
+    font-size: 14px;
+    background-color: salmon;
+    transition: all 3s;
+}
+body:hover .top {
+    background-color: rgba(255 ,255, 255, 0);
+}
+.top_left {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background-color: skyblue;
+    position: absolute;
+    top: 0;
+    left: 500px;
+    border: 2px solid white;
+    transition: all 1s;
+    cursor: pointer;
+    /*文字显示几行，显示不下的用省略号表示*/
+    display: -webkit-box;
+    text-overflow: ellipsis;
+    -webkit-box-orient: vertical;
+    /*显示几行文字*/
+    -webkit-line-clamp: 2;
+    animation: xz 5s linear infinite alternate;
+    z-index: 1;
+}
+@keyframes xz {
+    0%{
+        transform: rotateZ(0deg);
+    }
+    50%{
+        transform: rotateZ(180deg);
+    }
+    100%{
+        transform: rotateZ(360deg);
+    }
+}
+.top_left p {
+    display: block;
+    width: 200px;
+    height: 50px;
+    color: deeppink;
+    /*文字自动换行*/
+    word-break: break-word;
+    margin: 80px auto;
+    animation: p 3s linear infinite alternate;
+}
+.top_left:hover {
+    /*移动  旋转 放大*/
+    transform: translateY(180px) scale(1.5);
+}
+@keyframes p {
+    0%{
+        color: deeppink;
+    }
+    100%{
+        color: greenyellow;
+    }
+}
+.top_right {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    margin-left: 10px;
+    background-color: pink;
+    position: absolute;
+    top: 0;
+    left: 700px;
+    border: 2px solid white;
+    cursor: pointer;
+    overflow: hidden;
+}
+.top_right ul {
+    width: 350px;
+    height: 50px;
+    margin: 80px auto;
+    animation: ul 3s linear infinite alternate;
+    position: absolute;
+    left: 5px;
+}
+.top_right ul li {
+    width: 50px;
+    float: left;
+    line-height: 50px;
+    margin-right: 10px;
+    background-color: darkturquoise;
+
+}
+.top_right ul li:last-child {
+    margin-right: 0;
+}
+@keyframes ul {
+    0%{
+        left: 5px;
+        background-color: darkturquoise;
+        color: black;
+    }
+    50%{
+        left: -60px;
+        background-color: #610000;
+        color: yellow;
+    }
+    100%{
+        left: -155px;
+        background-color: skyblue;
+        color: #610000;
+    }
+}
